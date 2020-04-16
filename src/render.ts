@@ -1,9 +1,11 @@
+export type Node = string | Node[]
+
 interface Render {
-	(header: string, items: (string|(string|string[])[])[]): void
+	(header: string, items: Node): void
 
 }
 interface RenderLevel {
-	(items: (string|(string|string[])[])[], level: number): void
+	(items: Node, level: number): void
 
 }
 export const render: Render = (header, items) => {
@@ -12,19 +14,19 @@ export const render: Render = (header, items) => {
 	console.info('')
 }
 
-export const renderLevel: RenderLevel = (items, level) => {
-	for(const data of items) {
-		if (!Array.isArray(data)) {
-			// actual render here
-			let tabs = ''
-			let tabsNum = level > 0 ? level : 0
-			// populate tabs
-			while (tabsNum) {
-				tabs = tabs + '\t'
-				tabsNum--
-			}
-			console.info(`${tabs}${data}`)
-		} else {
+export const renderLevel: RenderLevel = (item, level) => {
+	if (!Array.isArray(item)) {
+		// actual render here
+		let tabs = ''
+		let tabsNum = level > 0 ? level : 0
+		// populate tabs
+		while (tabsNum) {
+			tabs = tabs + '\t'
+			tabsNum--
+		}
+		console.info(`${tabs}${item}`)
+	} else {
+		for(const data of item) {
 			renderLevel(data, level + 1)
 		}
 	}

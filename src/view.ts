@@ -1,7 +1,8 @@
 import { User } from './user'
+import { Node } from './render'
 
 interface PersonAge {
-	(user: User): string
+	(age: number): string
 }
 
 interface PersonName {
@@ -9,22 +10,22 @@ interface PersonName {
 }
 
 interface PersonView {
-	(user: User): (string|string[])[]
+	(user: User): Node
 }
 
-export const personAge: PersonAge = (user) => {
-	return `Age: ${user.age + 2}`
+export const personAge: PersonAge = (age) => {
+	return `Age: ${age + 2}`
 }
 
 export const personName: PersonName = (name) => {
 	return `Name: ${name + 2}`
 }
 
-export const personView: PersonView = (user) => {
+export const personView: PersonView = (person) => {
 	return [
-		personName(user.name),
+		personName(person.name),
 		[
-			personAge(user),
+			personAge(person.age),
 		]
 	]
 }
