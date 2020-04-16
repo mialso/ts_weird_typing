@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build_dep": "tsc src/dependency_inversion.ts --outDir out/",
+    "build": "tsc src/run.ts --outDir out/",
+	"exec": "node out/run.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mialso",
