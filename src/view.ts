@@ -13,11 +13,11 @@ interface PersonView {
 }
 
 export const personAge: PersonAge = (user) => {
-	return user.age + 2
+	return `Age: ${user.age + 2}`
 }
 
 export const personName: PersonName = (user) => {
-	return user.name + 2
+	return `Name: ${user.name + 2}`
 }
 
 export const personView: PersonView = (user) => {
