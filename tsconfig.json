@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"noImplicitAny": true
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

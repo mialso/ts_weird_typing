@@ -1,0 +1,15 @@
+{
+  "name": "types-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build_dep": "tsc src/dependency_inversion.ts --outDir out/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mialso",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.8.3"
+  }
+}
