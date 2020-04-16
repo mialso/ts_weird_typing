@@ -1,14 +1,15 @@
 interface Render {
-	(items: (string|(string|string[])[])[]): void
+	(header: string, items: (string|(string|string[])[])[]): void
 
 }
 interface RenderLevel {
 	(items: (string|(string|string[])[])[], level: number): void
 
 }
-export const render: Render = (items) => {
-	console.info('sample render:')
-	return renderLevel(items, -1)
+export const render: Render = (header, items) => {
+	console.info(header)
+	renderLevel(items, -1)
+	console.info('')
 }
 
 export const renderLevel: RenderLevel = (items, level) => {
@@ -16,7 +17,7 @@ export const renderLevel: RenderLevel = (items, level) => {
 		if (!Array.isArray(data)) {
 			// actual render here
 			let tabs = ''
-			let tabsNum = level
+			let tabsNum = level > 0 ? level : 0
 			// populate tabs
 			while (tabsNum) {
 				tabs = tabs + '\t'

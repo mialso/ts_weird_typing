@@ -5,7 +5,7 @@ interface PersonAge {
 }
 
 interface PersonName {
-	(user: User): string
+	(name: string): string
 }
 
 interface PersonView {
@@ -16,13 +16,13 @@ export const personAge: PersonAge = (user) => {
 	return `Age: ${user.age + 2}`
 }
 
-export const personName: PersonName = (user) => {
-	return `Name: ${user.name + 2}`
+export const personName: PersonName = (name) => {
+	return `Name: ${name + 2}`
 }
 
 export const personView: PersonView = (user) => {
 	return [
-		personName(user),
+		personName(user.name),
 		[
 			personAge(user),
 		]

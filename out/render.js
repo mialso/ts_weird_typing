@@ -1,8 +1,9 @@
 "use strict";
 exports.__esModule = true;
-exports.render = function (items) {
-    console.info('sample render:');
-    return exports.renderLevel(items, -1);
+exports.render = function (header, items) {
+    console.info(header);
+    exports.renderLevel(items, -1);
+    console.info('');
 };
 exports.renderLevel = function (items, level) {
     for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
@@ -10,7 +11,7 @@ exports.renderLevel = function (items, level) {
         if (!Array.isArray(data)) {
             // actual render here
             var tabs = '';
-            var tabsNum = level;
+            var tabsNum = level > 0 ? level : 0;
             // populate tabs
             while (tabsNum) {
                 tabs = tabs + '\t';

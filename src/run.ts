@@ -3,8 +3,11 @@ import { users } from './user';
 import { customers } from './customer';
 import { personView, personName } from './view';
 
-render(users.map(personView))
-render([
+render(
+	'users:',
+	users.map(personView),
+)
+render(
 	'customers:',
-	customers.map(personName),
-])
+	customers.map(({ name }) => personName(name)),
+)
